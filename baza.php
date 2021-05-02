@@ -15,7 +15,7 @@ Class baza
         $x = 0;
         while($row = pg_fetch_row($result))
         {
-            $ogl = $row[2];
+            $ogl = $row[3];
             $oglasi[$x] = $ogl;
             $x++;
         }
