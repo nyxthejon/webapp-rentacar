@@ -4,7 +4,10 @@ require 'baza.php';
 <!DOCTYPE html>
 <html>
 <head>
+
+
 <title>RentACar-Webapp</title>
+
     <style>
     table, th, td {
     border: 1px solid black;

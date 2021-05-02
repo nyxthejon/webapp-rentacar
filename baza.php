@@ -120,6 +120,21 @@ WHERE z.ime_z = '$imez' AND m.ime_m = '$imem' AND a.letnik = $letnik AND u.ime_u
         return $casi;
     }
 
+    //izpis stevila oglasov po krajih
+    static function oglasipokrajih()
+    {
+        $krajinst = array();
+        $result = pg_query(self::con(),"SELECT COUNT(*),k.ime_k FROM kraji k INNER JOIN oglasi o ON o.id_kraja = k.id_k GROUP BY k.ime_k ORDER BY COUNT(*) DESC;");
+        $x = 0;
+        while ($row = pg_fetch_row($result))
+        {
+            $krajinst[$x] = $row[0]."|".$row[1];
+            $x++;
+        }
+        pg_close();
+        return $krajinst;
+    }
+
 
 
 
