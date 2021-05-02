@@ -2,6 +2,7 @@
 require 'header.php';
 
 $oglasiarray = baza::zasedenioglasi();
+
 ?>
 <table>
     <tr>
@@ -18,6 +19,8 @@ $oglasiarray = baza::zasedenioglasi();
     <?php
     foreach ($oglasiarray as $oglas) {
 
+        $id = baza::idOglasa($oglas->model,$oglas->znamka,$oglas->letnik,$oglas->cena,$oglas->imeuporabnika,$oglas->priimek,$oglas->kraj,$oglas->pot);
+        echo $id;
         echo "<tr>";
         echo "<td>".$oglas->znamka."</td>";
         echo "<td>".$oglas->model."</td>";
