@@ -21,7 +21,14 @@ class oglasi
 
 
 
-
+    public function __construct1($znamka,$model,$imeuporabnika,$priimek,$pot)
+    {
+        $this->znamka = $znamka;
+        $this->model = $model;
+        $this->imeuporabnika = $imeuporabnika;
+        $this->priimek = $priimek;
+        $this->pot = $pot;
+    }
     public function __construct($znamka,$model,$imeuporabnika,$priimek,$cena,$letnik,$kraj,$pot)
     {
         $this->znamka = $znamka;
@@ -33,5 +40,7 @@ class oglasi
         $this->kraj = $kraj;
         $this->pot = $pot;
     }
+
+
 
 }
