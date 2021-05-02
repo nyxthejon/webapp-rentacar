@@ -1,5 +1,7 @@
 <?php require 'header.php';
+
 $kicas = baza::oglasipokrajih();
+$zpro = baza::procentznamk();
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -8,7 +10,8 @@ $kicas = baza::oglasipokrajih();
     <script type="text/javascript">
 
         window.onload = function () {
-            var chart = new CanvasJS.Chart("chartContainer", {
+            //kraj chart
+            var krajchart = new CanvasJS.Chart("chartkraj", {
                 title:{
                     text: "Stevilo oglasov glede na kraj"
                 },
@@ -33,11 +36,40 @@ $kicas = baza::oglasipokrajih();
                     }
                 ]
             });
-            chart.render();
+            krajchart.render();
+
+            //znamke chart
+            var zchart = new CanvasJS.Chart("chartznamka", {
+                title:{
+                    text: "Procent avtomobilov glede na znamko"
+                },
+                data: [
+                    {
+                        // Change type to "doughnut", "line", "splineArea", etc.
+                        type: "doughnut",
+                        dataPoints: [
+                            <?php
+                            foreach ($zpro as $z)
+                            {
+                                $split = explode("|",$z);
+                                echo "{ label: '$split[0]', y:$split[1] },";
+                            }
+
+
+
+                            ?>
+
+
+                        ]
+                    }
+                ]
+            });
+            zchart.render();
         }
     </script>
 </head>
 <body>
-<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<div id="chartkraj" style="height: 300px; width: 100%;"></div>
+<div id="chartznamka" style="height: 300px; width: 100%;"></div>
 </body>
 </html>

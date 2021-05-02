@@ -135,6 +135,34 @@ WHERE z.ime_z = '$imez' AND m.ime_m = '$imem' AND a.letnik = $letnik AND u.ime_u
         return $krajinst;
     }
 
+    static function procentznamk()
+    {
+        $znamk = array();
+        $imena = array();
+        $st = array();
+        $result = pg_query(self::con(),"SELECT COUNT(*), z.ime_z FROM znamke z  INNER JOIN modeli m ON m.id_znamke = z.id_z INNER JOIN avtomobili a ON a.id_modela = m.id_m  GROUP BY z.ime_z;");
+        $x = 0;
+        $vst = 0;
+        while ($row = pg_fetch_row($result))
+        {
+            $imena[$x] = $row[1];
+            $st[$x] = $row[0];
+            $x++;
+        }
+        foreach($st as $s)
+        {
+            $vst = $vst + $s;
+        }
+        for($i = 0;$i < sizeof($st);$i++)
+        {
+            $pro = $st[$i] / $vst;
+            $pro = $pro * 100;
+            $znamk[$i] = $imena[$i]."|".$pro;
+        }
+        pg_close();
+        return $znamk;
+    }
+
 
 
 
