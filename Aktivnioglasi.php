@@ -1,8 +1,10 @@
 <?php
 require 'header.php';
 
+$ok = 0;
 if(isset($_POST['arhivbutton'])) {
-
+    $ok = 1;
+    $oglasiarray = baza::arhivoglasi();
     ?>
     <form method="post">
         <input type = "submit" name="normalbutton"
@@ -12,6 +14,7 @@ if(isset($_POST['arhivbutton'])) {
 }
 else
 {
+    $ok = 2;
     $oglasiarray = baza::zasedenioglasi();
     ?>
     <form method="post">
@@ -38,9 +41,17 @@ else
 
     <?php
     foreach ($oglasiarray as $oglas) {
+        if($ok == 1)
+        {
+            $id = baza::idarhivoglasa($oglas->model,$oglas->znamka,$oglas->letnik,$oglas->cena,$oglas->imeuporabnika,$oglas->priimek,$oglas->kraj,$oglas->pot);
+            $casiarray = baza::zasedeniarhivcasi($id);
+        }
+        else
+        {
+            $id = baza::idOglasa($oglas->model,$oglas->znamka,$oglas->letnik,$oglas->cena,$oglas->imeuporabnika,$oglas->priimek,$oglas->kraj,$oglas->pot);
+            $casiarray = baza::zasedenicasi($id);
+        }
 
-        $id = baza::idOglasa($oglas->model,$oglas->znamka,$oglas->letnik,$oglas->cena,$oglas->imeuporabnika,$oglas->priimek,$oglas->kraj,$oglas->pot);
-        $casiarray = baza::zasedenicasi($id);
         echo "<tr>";
         echo "<td>".$oglas->znamka."</td>";
         echo "<td>".$oglas->model."</td>";
