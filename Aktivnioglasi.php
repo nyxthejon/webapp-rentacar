@@ -1,9 +1,29 @@
 <?php
 require 'header.php';
 
-$oglasiarray = baza::zasedenioglasi();
+if(isset($_POST['arhivbutton'])) {
+
+    ?>
+    <form method="post">
+        <input type = "submit" name="normalbutton"
+               value="Samo rezervirani oglasi">
+    </form>
+<?php
+}
+else
+{
+    $oglasiarray = baza::zasedenioglasi();
+    ?>
+    <form method="post">
+        <input type = "submit" name="arhivbutton"
+               value="Arhiv oglasov">
+    </form>
+<?php
+}
+
 
 ?>
+
 <table>
     <tr>
         <th>Znamka</th>
