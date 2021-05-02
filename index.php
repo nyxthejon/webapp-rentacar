@@ -1,5 +1,5 @@
 <?php
-require_once 'baza.php';
+require 'header.php';
 
 $oglasi = baza::selectoglasi();
 foreach ($oglasi as $oglas)

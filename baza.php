@@ -1,5 +1,5 @@
 <?php
-require 'Oglasi.php';
+require 'oglasi.php';
 Class baza
 {
     static function con()
