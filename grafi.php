@@ -37,7 +37,6 @@ $zpro = baza::procentznamk();
                 ]
             });
             krajchart.render();
-
             //znamke chart
             var zchart = new CanvasJS.Chart("chartznamka", {
                 title:{
@@ -69,7 +68,7 @@ $zpro = baza::procentznamk();
     </script>
 </head>
 <body>
-<div id="chartkraj" style="height: 300px; width: 100%;"></div>
-<div id="chartznamka" style="height: 300px; width: 100%;"></div>
+<div id="chartkraj" ></div>
+<div id="chartznamka"></div>
 </body>
 </html>

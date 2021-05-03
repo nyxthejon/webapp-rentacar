@@ -2,7 +2,7 @@
 require 'header.php';
 $upo = baza::izpuporabniki();
 ?>
-<table>
+<table class="table table-bordered">
     <tr>
         <th>Email</th>
         <th>Ime in Priimek</th>

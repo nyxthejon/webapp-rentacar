@@ -3,7 +3,7 @@ require 'header.php';
 
 $oglasiarray = baza::selectoglasi();
 ?>
-<table>
+<table class = "table table-bordered">
     <tr>
         <th>Znamka</th>
         <th>Model</th>

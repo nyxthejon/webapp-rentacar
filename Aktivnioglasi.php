@@ -8,7 +8,7 @@ if(isset($_POST['arhivbutton'])) {
     ?>
     <form method="post">
         <input type = "submit" name="normalbutton"
-               value="Samo rezervirani oglasi">
+               value="Samo rezervirani oglasi" class="btn btn-info">
     </form>
 <?php
 }
@@ -19,7 +19,7 @@ else
     ?>
     <form method="post">
         <input type = "submit" name="arhivbutton"
-               value="Arhiv oglasov">
+               value="Arhiv oglasov" class="btn btn-info">
     </form>
 <?php
 }
@@ -27,7 +27,7 @@ else
 
 ?>
 
-<table>
+<table class = "table table-bordered">
     <tr>
         <th>Znamka</th>
         <th>Model</th>
