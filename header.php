@@ -22,7 +22,9 @@ require 'baza.php';
     <li class="active"><a href = "index.php">Pregled uporabnikov</a></li>
     <li><a href = "PregledOglasov.php">Pregled Oglasov </a></li>
     <li><a href = "Aktivnioglasi.php">Zasedeni časi </a> </li>
+    <li><a href = "izpiskrajev.php">Izpis Krajev</a></li>
     <li><a href = "grafi.php">Grafi </a> </li>
+
 </ul>
 
 </body>

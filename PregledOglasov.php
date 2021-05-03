@@ -1,6 +1,6 @@
 <?php
 require 'header.php';
-
+require 'aws.php';
 $oglasiarray = baza::selectoglasi();
 ?>
 <table class = "table table-bordered">

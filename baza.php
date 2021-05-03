@@ -154,12 +154,14 @@ WHERE z.ime_z = '$imez' AND m.ime_m = '$imem' AND a.letnik = $letnik AND u.ime_u
     static function izpiskrajev()
     {
         $krajarray = array();
-        $result = pg_query(self::con(),"select * from kraji;");
-        $x = 0;/*
+        $result = pg_query(self::con(),"select * from kraji ORDER BY st_oglasov DESC;");
+        $x = 0;
         while($row = pg_fetch_row($result))
         {
-            $krajarray
-        }*/
+            $krajarray[$x] = new krajiclass($row[1],$row[2],$row[3]);
+            $x++;
+        }
+        pg_close();
         return $krajarray;
     }
 

@@ -1,5 +1,6 @@
 <?php
 require 'header.php';
+require 'aws.php';
 
 $ok = 0;
 if(isset($_POST['arhivbutton'])) {
