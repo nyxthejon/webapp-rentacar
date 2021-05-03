@@ -1,6 +1,7 @@
 <?php
 require 'oglasi.php';
 require 'uporabniki.php';
+require 'krajiclass.php';
 Class baza
 {
     static function con()
@@ -150,6 +151,17 @@ WHERE z.ime_z = '$imez' AND m.ime_m = '$imem' AND a.letnik = $letnik AND u.ime_u
         return $upoarray;
 
     }
+    static function izpiskrajev()
+    {
+        $krajarray = array();
+        $result = pg_query(self::con(),"select * from kraji;");
+        $x = 0;/*
+        while($row = pg_fetch_row($result))
+        {
+            $krajarray
+        }*/
+        return $krajarray;
+    }
 
 //procent znamk po avtomobilih
     static function procentznamk()
@@ -179,6 +191,8 @@ WHERE z.ime_z = '$imez' AND m.ime_m = '$imem' AND a.letnik = $letnik AND u.ime_u
         pg_close();
         return $znamk;
     }
+
+
 
 
 
