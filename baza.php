@@ -111,7 +111,7 @@ WHERE z.ime_z = '$imez' AND m.ime_m = '$imem' AND a.letnik = $letnik AND u.ime_u
     static function zasedeniarhivcasi($ida)
     {
         $casi = array();
-        $result = pg_query(self::con(),"SELECT zac_datum,kon_datum FROM zaseden_cas WHERE id_oglasa = $ida");
+        $result = pg_query(self::con(),"SELECT zac_datum_a,kon_datum_a FROM zasedenicasi_arhiv WHERE id_ogl = $ida");
         $x = 0;
         while($row = pg_fetch_row($result))
         {
