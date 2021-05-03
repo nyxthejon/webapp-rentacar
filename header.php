@@ -15,7 +15,7 @@ require 'baza.php';
     </style>
 </head>
 <body>
-<a href = "index.php">Domov</a> <br>
+<a href = "index.php">Pregled uporabnikov</a> <br>
 <a href = "PregledOglasov.php">Pregled Oglasov </a><br>
 <a href = "Aktivnioglasi.php">Zasedeni časi </a><br>
 <a href = "grafi.php">Grafi </a><br>

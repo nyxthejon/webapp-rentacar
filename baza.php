@@ -1,5 +1,6 @@
 <?php
 require 'oglasi.php';
+require 'uporabniki.php';
 Class baza
 {
     static function con()
@@ -135,6 +136,22 @@ WHERE z.ime_z = '$imez' AND m.ime_m = '$imem' AND a.letnik = $letnik AND u.ime_u
         return $krajinst;
     }
 
+    static function izpuporabniki()
+    {
+        $upoarray = array();
+        $result = pg_query(self::con(),"SELECT * FROM uporabniki u INNER JOIN kraji k ON k.id_k = u.id_kraja;");
+        $x = 0;
+        while($row = pg_fetch_row($result))
+        {
+            $upoarray[$x] = new uporabniki($row[1],$row[3],$row[4],$row[5],$row[9],$row[6]);
+            $x++;
+        }
+        pg_close();
+        return $upoarray;
+
+    }
+
+//procent znamk po avtomobilih
     static function procentznamk()
     {
         $znamk = array();
