@@ -16,6 +16,14 @@ require 'baza.php';
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <title>RentACar-Webapp</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        img {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            width: 200px;
+        }
+    </style>
 </head>
 <body>
 <ul class="nav nav-tabs">

@@ -17,7 +17,7 @@ class oglasi
     public $kraj;
     public $cena;
 
-    public $pot;
+    public $pot = 'C:\xampp\htdocs\webapp\img';
 
 
 

@@ -1,6 +1,7 @@
 <?php
 require 'header.php';
 require 'aws.php';
+
 $oglasiarray = baza::selectoglasi();
 ?>
 <table class = "table table-bordered">
@@ -15,6 +16,7 @@ $oglasiarray = baza::selectoglasi();
     </tr>
 
     <?php
+    $dir = 'img\\';
 foreach ($oglasiarray as $oglas) {
 
     echo "<tr>";
@@ -24,7 +26,7 @@ foreach ($oglasiarray as $oglas) {
     echo "<td>".$oglas->imeuporabnika." ".$oglas->priimek."</td>";
     echo "<td>".$oglas->cena."</td>";
     echo "<td>".$oglas->kraj."</td>";
-    echo "<td>".$oglas->pot."</td>";
+    echo "<td><img src='".$dir.$oglas->pot."'> </td>";
     echo "</tr>";
 
 

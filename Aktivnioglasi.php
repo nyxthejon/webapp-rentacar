@@ -42,6 +42,7 @@ else
 
     <?php
     foreach ($oglasiarray as $oglas) {
+        $dir = 'img\\';
         if($ok == 1)
         {
             $id = baza::idarhivoglasa($oglas->model,$oglas->znamka,$oglas->letnik,$oglas->cena,$oglas->imeuporabnika,$oglas->priimek,$oglas->kraj,$oglas->pot);
@@ -60,7 +61,8 @@ else
         echo "<td>".$oglas->imeuporabnika." ".$oglas->priimek."</td>";
         echo "<td>".$oglas->cena."</td>";
         echo "<td>".$oglas->kraj."</td>";
-        echo "<td>".$oglas->pot."</td>";
+        echo "<td><img src='".$dir.$oglas->pot."'</td>";
+
         echo "<td>";
         foreach($casiarray as $cas)
         {
