@@ -22,7 +22,7 @@ foreach ($buckets['Buckets'] as $bucket) {
 $source = 's3://'.$bucket['Name'];
 
 
-$dest = '\webapp\img';
+$dest = '\img';
 
 $manager = new \Aws\S3\Transfer($s3Client, $source, $dest);
 $manager->transfer();
