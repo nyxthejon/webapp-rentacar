@@ -13,12 +13,12 @@ Class baza
     static function selectoglasi()
     {
         $izpisoglasi = array();
-        $result = pg_query(self::con(),"SELECT m.ime_m,z.ime_z,a.letnik,o.cena_ura,u.ime_u,u.priimek_u,k.ime_k,a.pot_slike FROM znamke z INNER JOIN modeli m ON m.id_znamke = z.id_z INNER JOIN
+        $result = pg_query(self::con(),"SELECT m.ime_m,z.ime_z,a.letnik,o.cena_ura,u.ime_u,u.priimek_u,k.ime_k,a.pot_slike,o.zadnjarezervacija FROM znamke z INNER JOIN modeli m ON m.id_znamke = z.id_z INNER JOIN
 avtomobili a ON a.id_modela = m.id_m INNER JOIN oglasi o ON o.id_avtomobila = a.id_a INNER JOIN uporabniki u ON u.id_u = o.id_uporabnika INNER JOIN kraji k ON k.id_k = o.id_kraja;");
         $x = 0;
         while($row = pg_fetch_row($result))
         {
-            $ogl = new oglasi($row[1],$row[0],$row[4],$row[5],$row[3],$row[2],$row[6],$row[7]);
+            $ogl = new oglasi($row[1],$row[0],$row[4],$row[5],$row[3],$row[2],$row[6],$row[7],$row[8]);
             $izpisoglasi[$x] = $ogl;
             $x++;
         }
@@ -35,7 +35,7 @@ avtomobili a ON a.id_modela = m.id_m INNER JOIN arhiv o ON o.id_avtomobila = a.i
          $x = 0;
         while($row = pg_fetch_row($result))
         {
-            $ogl = new oglasi($row[1],$row[0],$row[4],$row[5],$row[3],$row[2],$row[6],$row[7]);
+            $ogl = new oglasi($row[1],$row[0],$row[4],$row[5],$row[3],$row[2],$row[6],$row[7],"ni");
             $arhivarray[$x] = $ogl;
             $x++;
         }
@@ -47,13 +47,13 @@ avtomobili a ON a.id_modela = m.id_m INNER JOIN arhiv o ON o.id_avtomobila = a.i
     static function zasedenioglasi()
     {
         $zasedeno = array();
-        $result = pg_query(self::con(),"SELECT DISTINCT m.ime_m,z.ime_z,a.letnik,o.cena_ura,u.ime_u,u.priimek_u,k.ime_k,a.pot_slike FROM znamke z INNER JOIN modeli m ON m.id_znamke = z.id_z INNER JOIN
+        $result = pg_query(self::con(),"SELECT DISTINCT m.ime_m,z.ime_z,a.letnik,o.cena_ura,u.ime_u,u.priimek_u,k.ime_k,a.pot_slike,o.zadnjarezervacija FROM znamke z INNER JOIN modeli m ON m.id_znamke = z.id_z INNER JOIN
 avtomobili a ON a.id_modela = m.id_m INNER JOIN oglasi o ON o.id_avtomobila = a.id_a INNER JOIN uporabniki u ON u.id_u = o.id_uporabnika INNER JOIN kraji k ON k.id_k = o.id_kraja INNER JOIN
 zaseden_cas zc ON o.id_o = zc.id_oglasa WHERE kon_datum > NOW();");
         $x = 0;
         while($row = pg_fetch_row($result))
         {
-            $ogl = new oglasi($row[1],$row[0],$row[4],$row[5],$row[3],$row[2],$row[6],$row[7]);
+            $ogl = new oglasi($row[1],$row[0],$row[4],$row[5],$row[3],$row[2],$row[6],$row[7],$row[8]);
             $zasedeno[$x] = $ogl;
             $x++;
         }

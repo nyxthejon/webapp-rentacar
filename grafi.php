@@ -51,7 +51,8 @@ $zpro = baza::procentznamk();
                             foreach ($zpro as $z)
                             {
                                 $split = explode("|",$z);
-                                echo "{ label: '$split[0]', y:$split[1] },";
+
+                                echo "{ label: '$split[0]', y:".floor($split[1])."},";
                             }
 
 

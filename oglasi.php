@@ -16,6 +16,7 @@ class oglasi
 
     public $kraj;
     public $cena;
+    public $zadnja;
 
     public $pot = 'C:\xampp\htdocs\webapp\img';
 
@@ -29,7 +30,7 @@ class oglasi
         $this->priimek = $priimek;
         $this->pot = $pot;
     }
-    public function __construct($znamka,$model,$imeuporabnika,$priimek,$cena,$letnik,$kraj,$pot)
+    public function __construct($znamka,$model,$imeuporabnika,$priimek,$cena,$letnik,$kraj,$pot,$zadnja)
     {
         $this->znamka = $znamka;
         $this->model = $model;
@@ -39,6 +40,7 @@ class oglasi
         $this->letnik = $letnik;
         $this->kraj = $kraj;
         $this->pot = $pot;
+        $this->zadnja = $zadnja;
     }
 
 

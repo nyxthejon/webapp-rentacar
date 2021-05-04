@@ -1,5 +1,6 @@
 <?php
 require 'baza.php';
+$current = basename(__FILE__);
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,11 +28,12 @@ require 'baza.php';
 </head>
 <body>
 <ul class="nav nav-tabs">
-    <li class="active"><a href = "index.php">Pregled uporabnikov</a></li>
-    <li><a href = "PregledOglasov.php">Pregled Oglasov </a></li>
-    <li><a href = "Aktivnioglasi.php">Zasedeni časi </a> </li>
-    <li><a href = "izpiskrajev.php">Izpis Krajev</a></li>
-    <li><a href = "grafi.php">Grafi </a> </li>
+
+    <li <?php if($current=='index.php') {echo 'class="active"';} ?>> <a href = "index.php">Pregled uporabnikov</a></li>
+    <li <?php if($current=='PregledOglasov.php') {echo 'class="active"';} ?>> <a href = "PregledOglasov.php">Pregled Oglasov </a></li>
+    <li <?php if($current=='Aktivnioglasi.php') {echo 'class="active"';} ?>> <a href = "Aktivnioglasi.php">Zasedeni časi </a> </li>
+    <li <?php if($current=='izpiskrajev.php') {echo 'class="active"';} ?>> <a href = "izpiskrajev.php">Izpis Krajev</a></li>
+    <li <?php if($current=='grafi.php') {echo 'class="active"';} ?>> <a href = "grafi.php">Grafi </a> </li>
 
 </ul>
 
